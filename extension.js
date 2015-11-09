@@ -212,7 +212,7 @@ function main2(){
     JSONTheme = JSON.parse(Cookies.get("Theme"));
   } catch(err) {
   }
-  console.log(JSONTheme)
+  console.log(JSONTheme);
   // allColor();
   var tables = document.getElementsByTagName("table");
   var header;
