@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+
+  "name": "Kent Powerschool Percentage Calculator",
+  "description": "This extension displays percentages of grades in Powerschool and allows the user to calculate updates to their grade.",
+  "version": "3.3.2",
+
+  "page_action": {
+    "default_title": "KDS Powerschool Grade Calculator",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "scripts": ["bootstrap.js"],
+    "persistent": false
+  },
+
+  "permissions": [
+    "http://powerschool.kentdenver.org/",
+    "https://powerschool.kentdenver.org/",
+    "https://powerschool.kentdenver.org/public/",
+    "tabs",
+    "storage",
+    "cookies"
+  ]
+
+}
