@@ -99,7 +99,7 @@ function reCalculate(){
   for(var i = 0 ; i < categories.length; i++) {
     var allEarned = parseFloat(document.getElementById(categories[i] + "_Earn").value);
     var allTotal =  parseFloat(document.getElementById(categories[i] + "_Tot").value);
-    var allPercent = allEarned/allTotal;
+    var allPercent = (allEarned/allTotal);
     var allWeight = parseFloat(document.getElementById(categories[i]).value);
     temp = parseFloat(allWeight);
     if(!isNaN(temp)) {
@@ -109,7 +109,7 @@ function reCalculate(){
     }
     totalEarned += allEarned * (allWeight/100);
     totalTotal += allTotal * (allWeight/100);
-    totalPercent += allPercent*(allWeight/100);
+    totalPercent += allPercent * (allWeight/100);
   }
 
   if(totalTotal != 0) {

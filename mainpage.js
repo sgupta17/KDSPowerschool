@@ -42,10 +42,10 @@ if(document.getElementById("KDSPSLoading") === null) {
   var footerTextColor = "";
   var opacity = "";
 
-  if(getCookie("Alert") != "done"){
+  if(Cookies.get("Alert") != "done"){
     window.alert("Version 3.3.2 - Fixed Weighting Issues.\nContact kdsdeveloper@kentdenver.org for any questions or suggestions.\n- Shreyas '17 & Fahim '17");
   }
-  setCookie("Alert", "done");
+  Cookies.set("Alert", "done");
 
   function standardTheme(){
     JSONTheme.textFont = "Helvetica";
@@ -311,7 +311,6 @@ if(document.getElementById("KDSPSLoading") === null) {
 
 function addElement (numb) {
   var newDiv = '<div style="margin-bottom:10px">Current Semester GPA: ' + numb + '</div>';
-  // add the newly created element and its content into the DOM
   $($('#content-main > div:nth-child(4) > table:nth-child(7) > tbody > tr:nth-child(4) > td')[0]).prepend(newDiv);
 }
 });
@@ -330,17 +329,17 @@ function onElementRendered(selector, cb, _attempts) {
   }, 250);
 }
 
-function setCookie(cname, cvalue) {
-    document.cookie = cname + "=" + cvalue + ";";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-    }
-    return "";
-}
+// function setCookie(cname, cvalue) {
+//     document.cookie = cname + "=" + cvalue + ";";
+// }
+//
+// function getCookie(cname) {
+//     var name = cname + "=";
+//     var ca = document.cookie.split(';');
+//     for(var i=0; i<ca.length; i++) {
+//         var c = ca[i];
+//         while (c.charAt(0)==' ') c = c.substring(1);
+//         if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+//     }
+//     return "";
+// }
