@@ -96,6 +96,8 @@ function reCalculate(){
   var totalTotal = 0;
   var totalPercent = 0;
 
+  var totalWeight = 0;
+
   for(var i = 0 ; i < categories.length; i++) {
     var allEarned = parseFloat(document.getElementById(categories[i] + "_Earn").value);
     var allTotal =  parseFloat(document.getElementById(categories[i] + "_Tot").value);
@@ -109,11 +111,13 @@ function reCalculate(){
     }
     totalEarned += allEarned * (allWeight/100);
     totalTotal += allTotal * (allWeight/100);
+
+    totalWeight += allWeight/100;
     totalPercent += allPercent * (allWeight/100);
   }
 
   if(totalTotal != 0) {
-    newGrade = (totalPercent)*100;
+    newGrade = (totalPercent/totalWeight)*100;
     newGrade = parseFloat(newGrade).toFixed(2) + "%";
   } else {
     newGrade = '--';
