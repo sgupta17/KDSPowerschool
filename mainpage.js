@@ -15,9 +15,7 @@ var JSONTheme = {};
 
 $(document).ready(function() {
   onElementRendered('#content-main > div:nth-child(4) > table:nth-child(7) > tbody > tr:nth-child(4)', function(el) {
-
-if(document.getElementById("KDSPSLoading") === null) {
-
+    if(document.getElementById("KDSPSLoading") === null) {
   var realHeader;
   var realTabs;
   var realBackground;
@@ -67,35 +65,31 @@ if(document.getElementById("KDSPSLoading") === null) {
     JSONTheme.opacity = "1";
     allColor();
   }
-
   function customTheme(){
-
     realHeader = "#c9c9c9";
     realTabs = "#9ad3de";
     realBackground = "#e3e3e3";
     realAlt = "#89bdd3";
     realText = "#000000";
-
-  JSONTheme.textFont = "Helvetica";
-  JSONTheme.textColor = realText;
-  JSONTheme.sidebarColor = realHeader;
-  JSONTheme.bgColor =  realBackground;
-  JSONTheme.period1Color = realBackground;
-  JSONTheme.period1FontColor = "#000000";
-  JSONTheme.period2Color = realAlt;
-  JSONTheme.period2FontColor = realText;
-  JSONTheme.headerColor = realHeader;
-  JSONTheme.headerTextColor = "#000000";
-  JSONTheme.gradesHeader = realAlt;
-  JSONTheme.headerBar = realAlt;
-  JSONTheme.linkTextColor = realText;
-  JSONTheme.selected = realTabs;
-  JSONTheme.footerColor = realTabs;
-  JSONTheme.footerTextColor = realText;
-  JSONTheme.opacity = "1";
+    JSONTheme.textFont = "Helvetica";
+    JSONTheme.textColor = realText;
+    JSONTheme.sidebarColor = realHeader;
+    JSONTheme.bgColor =  realBackground;
+    JSONTheme.period1Color = realBackground;
+    JSONTheme.period1FontColor = "#000000";
+    JSONTheme.period2Color = realAlt;
+    JSONTheme.period2FontColor = realText;
+    JSONTheme.headerColor = realHeader;
+    JSONTheme.headerTextColor = "#000000";
+    JSONTheme.gradesHeader = realAlt;
+    JSONTheme.headerBar = realAlt;
+    JSONTheme.linkTextColor = realText;
+    JSONTheme.selected = realTabs;
+    JSONTheme.footerColor = realTabs;
+    JSONTheme.footerTextColor = realText;
+    JSONTheme.opacity = "1";
     allColor();
   }
-
   function allColor(){
     for(var i = 0; i < JSONTheme.topRows.length; i++){
       if(i%2 == 0){ //changes every other color starting from period 1
@@ -315,7 +309,6 @@ function addElement (numb) {
 }
 });
 });
-
 function onElementRendered(selector, cb, _attempts) {
   var el = $(selector);
   _attempts = ++_attempts || 1;
@@ -328,18 +321,3 @@ function onElementRendered(selector, cb, _attempts) {
     onElementRendered(selector, cb, _attempts);
   }, 250);
 }
-
-// function setCookie(cname, cvalue) {
-//     document.cookie = cname + "=" + cvalue + ";";
-// }
-//
-// function getCookie(cname) {
-//     var name = cname + "=";
-//     var ca = document.cookie.split(';');
-//     for(var i=0; i<ca.length; i++) {
-//         var c = ca[i];
-//         while (c.charAt(0)==' ') c = c.substring(1);
-//         if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-//     }
-//     return "";
-// }
