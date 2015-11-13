@@ -16,6 +16,13 @@
     "persistent": false
   },
 
+  "content_scripts": [
+    {
+      "matches": ["https://powerschool.kentdenver.org/*"],
+      "css": ["spectrum.css"]
+    }
+  ],
+
   "permissions": [
     "http://powerschool.kentdenver.org/",
     "https://powerschool.kentdenver.org/",

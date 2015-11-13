@@ -91,9 +91,9 @@ $(document).ready(function() {
     allColor();
   }
   function allColor(){
-    for(var i = 0; i < JSONTheme.topRows.length; i++){
+    for(var i = 0; i < topRows.length; i++){
       if(i%2 == 0){ //changes every other color starting from period 1
-        for (var k = 0; k <= JSONTheme.topRows.length; k++){
+        for (var k = 0; k <= topRows.length; k++){
           $('#content-main > div:nth-child(4) > table:nth-child(6) > tbody > tr:nth-child(' + i + ') > td:nth-child(' + k + ')').css({ "background-color": JSONTheme.period1Color, "fontFamily": JSONTheme.textFont, "fontWeight": "100", "color": JSONTheme.period1FontColor});
         }
       }
@@ -115,23 +115,23 @@ $(document).ready(function() {
       $('#nav-secondary > li.selected > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor, "backgroundColor": JSONTheme.selected}); // selected stuff
       $('#usercontext-bar').css({"backgroundColor": JSONTheme.headerBar}); // header bar
 
-      for (var i = 0; i < JSONTheme.topLocs.length; i++) { //changes exp, course, C1, Unexcused Abs and Tardies properties
-        JSONTheme.topLocs[i].style.background = JSONTheme.gradesHeader;
-        JSONTheme.topLocs[i].style.color = JSONTheme.headerTextColor;
-        JSONTheme.topLocs[i].style.zIndex = "1";
-        JSONTheme.topLocs[i].style.fontFamily = JSONTheme.textFont;
-        JSONTheme.topLocs[i].style.fontWeight = "bold";
+      for (var i = 0; i < topLocs.length; i++) { //changes exp, course, C1, Unexcused Abs and Tardies properties
+        topLocs[i].style.background = JSONTheme.gradesHeader;
+        topLocs[i].style.color = JSONTheme.headerTextColor;
+        topLocs[i].style.zIndex = "1";
+        topLocs[i].style.fontFamily = JSONTheme.textFont;
+        topLocs[i].style.fontWeight = "bold";
       }
-      for (var i = 0; i < JSONTheme.topCols.length; i++) { // changes attendence by class, last week and this week properties
-        JSONTheme.topCols[i].style.background = JSONTheme.gradesHeader;
-        JSONTheme.topCols[i].style.color = JSONTheme.headerTextColor;
-        JSONTheme.topCols[i].style.zIndex = "1";
-        JSONTheme.topCols[i].style.fontFamily = JSONTheme.textFont;
-        JSONTheme.topCols[i].style.fontWeight = "bold";
+      for (var i = 0; i < topCols.length; i++) { // changes attendence by class, last week and this week properties
+        topCols[i].style.background = JSONTheme.gradesHeader;
+        topCols[i].style.color = JSONTheme.headerTextColor;
+        topCols[i].style.zIndex = "1";
+        topCols[i].style.fontFamily = JSONTheme.textFont;
+        topCols[i].style.fontWeight = "bold";
       }
-      for (var i = 0; i < JSONTheme.topRows.length; i++) { //changes every other period from period 2
-        for (var i = 0; i < JSONTheme.topRows.length; i++) { //changes every other period from period 2
-          for (var i = 5; i < JSONTheme.topRows.length; i++) { //changes every other period from period 2
+      for (var i = 0; i < topRows.length; i++) { //changes every other period from period 2
+        for (var i = 0; i < topRows.length; i++) { //changes every other period from period 2
+          for (var i = 5; i < topRows.length; i++) { //changes every other period from period 2
             for(var k = 0; k <= 15; k++){
               if(i%2 == 1){
                 $('#content-main > div:nth-child(4) > table:nth-child(6) > tbody > tr:nth-child(' + i + ') > td:nth-child('+ k +')').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.period2FontColor, "backgroundColor": JSONTheme.period2Color, "zIndex": "1"});
@@ -141,7 +141,7 @@ $(document).ready(function() {
         }
       }
       for(var i = 3;i > 0;i--){//changes Attendance Totals properties
-        $('#content-main > div:nth-child(4) > table:nth-child(6) > tbody > tr:nth-child(' + JSONTheme.topRows.length + ') > td:nth-child('+ i + ')').css({ "background-color": JSONTheme.gradesHeader, "fontFamily": JSONTheme.textFont, "fontWeight": "bold", "color": JSONTheme.headerTextColor});
+        $('#content-main > div:nth-child(4) > table:nth-child(6) > tbody > tr:nth-child(' + topRows.length + ') > td:nth-child('+ i + ')').css({ "background-color": JSONTheme.gradesHeader, "fontFamily": JSONTheme.textFont, "fontWeight": "bold", "color": JSONTheme.headerTextColor});
       }
 
       $("#content").css("background-color", JSONTheme.sidebarColor); // changes color of side bar
@@ -181,10 +181,81 @@ $(document).ready(function() {
         CustomButton.value = 'Custom';
         CustomButton.name = 'Custom';
         CustomButton.onclick = function() {
-          currentButton = "CustomTheme";
-          Cookies.set("Theme", JSON.stringify(JSONTheme));
-          customTheme();
-          saveChanges();
+          $('#content-main > div:nth-child(4) > h2').append('\n <input type="hidden" id="headerColor">');
+          $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="text">');
+          $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="tabs">');
+          $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="background">');
+          $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="alt">');
+          $("#text").spectrum({
+            showPalette: true,
+            showSelectionPalette: true, // true by default
+            palette: [],
+            realText: $("#text").spectrum("get"),
+          });
+          $("#text").spectrum({
+            showPalette: true,
+            showSelectionPalette: true,
+            palette: [],
+            localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
+            realText: $("#text").spectrum("get"),
+          });
+            $("#headerColor").spectrum({
+              showPalette: true,
+              showSelectionPalette: true, // true by default
+              palette: [],
+              realText: $("#headerColor").spectrum("get"),
+            });
+            $("#headerColor").spectrum({
+              showPalette: true,
+              showSelectionPalette: true,
+              palette: [ ],
+              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
+              realText: $("#headerColor").spectrum("get"),
+            });
+            $("#tabs").spectrum({
+              showPalette: true,
+              showSelectionPalette: true, // true by default
+              palette: [],
+              realText: $("#tabs").spectrum("get"),
+            });
+            $("#tabs").spectrum({
+              showPalette: true,
+              showSelectionPalette: true,
+              palette: [ ],
+              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
+              realText: $("#tabs").spectrum("get"),
+            });
+            $("#alt").spectrum({
+              showPalette: true,
+              showSelectionPalette: true, // true by default
+              palette: [],
+              realText: $("#alt").spectrum("get"),
+            });
+            $("#alt").spectrum({
+              showPalette: true,
+              showSelectionPalette: true,
+              palette: [ ],
+              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
+              realText: $("#alt").spectrum("get"),
+            });
+            $("#background").spectrum({
+              showPalette: true,
+              showSelectionPalette: true, // true by default
+              palette: [],
+              realText: $("#background").spectrum("get"),
+            });
+            $("#background").spectrum({
+              showPalette: true,
+              showSelectionPalette: true,
+              palette: [ ],
+              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
+              realText: $("#background").spectrum("get"),
+            });
+
+            customTheme();
+            saveChanges();
+            currentButton = "CustomTheme";
+            Cookies.set("Theme", JSON.stringify(JSONTheme));
       }
   $('#content-main > div:nth-child(4) > h2').append(CustomButton);
 
@@ -224,7 +295,6 @@ $(document).ready(function() {
         console.log(realData);
         if(realData !== undefined) {
           buttonPref = realData.currentName;
-          console.log(buttonPref);
             if (buttonPref == "DefaultTheme") {
               standardTheme();
             } else if (buttonPref == "CustomTheme") {
