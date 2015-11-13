@@ -186,25 +186,29 @@ $(document).ready(function() {
           $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="tabs">');
           $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="background">');
           $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="alt">');
-          $("#text").spectrum({
+          var tempText;
+          var tempHeaderColor;
+          var tempAlt;
+          var tempTabs;
+          var tempBackground;
+          var tempText = $("#text").spectrum({
             showPalette: true,
             showSelectionPalette: true, // true by default
             palette: [],
-            realText: $("#text").spectrum("get"),
           });
+          realText = tempText.spectrum("get").toHexString();
           $("#text").spectrum({
             showPalette: true,
             showSelectionPalette: true,
             palette: [],
             localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
-            realText: $("#text").spectrum("get"),
           });
-            $("#headerColor").spectrum({
+          tempHeaderColor = $("#headerColor").spectrum({
               showPalette: true,
               showSelectionPalette: true, // true by default
               palette: [],
-              realText: $("#headerColor").spectrum("get"),
             });
+            realHeader = tempHeaderColor.spectrum("get").toHexString();
             $("#headerColor").spectrum({
               showPalette: true,
               showSelectionPalette: true,
@@ -212,7 +216,7 @@ $(document).ready(function() {
               localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
               realText: $("#headerColor").spectrum("get"),
             });
-            $("#tabs").spectrum({
+            tempTabs = $("#tabs").spectrum({
               showPalette: true,
               showSelectionPalette: true, // true by default
               palette: [],
@@ -251,7 +255,6 @@ $(document).ready(function() {
               localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
               realText: $("#background").spectrum("get"),
             });
-
             customTheme();
             saveChanges();
             currentButton = "CustomTheme";
