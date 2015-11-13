@@ -222,6 +222,7 @@ $(document).ready(function() {
               palette: [],
               realText: $("#tabs").spectrum("get"),
             });
+            realTab = tempTabs.spectrum("get").toHexString();
             $("#tabs").spectrum({
               showPalette: true,
               showSelectionPalette: true,
@@ -229,12 +230,13 @@ $(document).ready(function() {
               localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
               realText: $("#tabs").spectrum("get"),
             });
-            $("#alt").spectrum({
+            tempAlt = $("#alt").spectrum({
               showPalette: true,
               showSelectionPalette: true, // true by default
               palette: [],
               realText: $("#alt").spectrum("get"),
             });
+            realAlt = tempAlt.spectrum("get").toHexString();
             $("#alt").spectrum({
               showPalette: true,
               showSelectionPalette: true,
@@ -242,12 +244,13 @@ $(document).ready(function() {
               localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
               realText: $("#alt").spectrum("get"),
             });
-            $("#background").spectrum({
+            tempBackground = $("#background").spectrum({
               showPalette: true,
               showSelectionPalette: true, // true by default
               palette: [],
               realText: $("#background").spectrum("get"),
             });
+            realBackground = tempBackground.spectrum("get").toHexString();
             $("#background").spectrum({
               showPalette: true,
               showSelectionPalette: true,
