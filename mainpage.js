@@ -41,11 +41,6 @@ if(document.getElementById("KDSPSLoading") === null) {
   var footerTextColor = "";
   var opacity = "";
 
-  if(Cookies.get("Alert") != "done"){
-    window.alert("Version 3.3.3 - Bug Fixes (i.e. Weighting).\nContact kdsdeveloper@kentdenver.org for any questions or suggestions.\n- Shreyas '17 & Fahim '17");
-  }
-  Cookies.set("Alert", "done");
-
   function standardTheme(){
     JSONTheme.textColor = "#000000";
     JSONTheme.sidebarColor = "#F4F7FA";

@@ -5,7 +5,7 @@
   "description": "This extension displays percentages of grades in Powerschool and allows the user to calculate updates to their grade.",
   "version": "3.3.3",
 
-  "page_action": {
+  "browser_action": {
     "default_title": "KDS Powerschool Grade Calculator",
     "default_icon": "icon.png",
     "default_popup": "popup.html"
