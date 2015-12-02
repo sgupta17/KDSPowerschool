@@ -6,6 +6,7 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
       chrome.tabs.executeScript(null, {"file": "js.cookie.js"});
       chrome.tabs.executeScript(null, {"file": "allpages.js"});
       chrome.tabs.executeScript(null, {"file": "spectrum.js"});
+      chrome.tabs.executeScript(null, {"file": "bootstrap.min.js"});
       if(url.indexOf("home.html") != -1) {
         chrome.tabs.executeScript(null, {"file": "mainpage.js"});
       } else if(url.indexOf("scores") != -1 ) {

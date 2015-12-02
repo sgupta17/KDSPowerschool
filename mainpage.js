@@ -13,6 +13,7 @@ var storageName = "Theme Button";
 var buttonPref = "DefaultTheme";
 var JSONTheme = {};
 
+
 $(document).ready(function() {
   onElementRendered('#content-main > div:nth-child(4) > table:nth-child(7) > tbody > tr:nth-child(4)', function(el) {
     if(document.getElementById("KDSPSLoading") === null) {
@@ -35,10 +36,11 @@ $(document).ready(function() {
   var period1FontColor = "";
   var headerBar = "";
   var linkTextColor = "";
-  var selected = "";
+  var selected1= "";
   var footerColor = "";
   var footerTextColor = "";
   var opacity = "";
+
 
   if(Cookies.get("Alert") != "done"){
     window.alert("Version 3.3.2 - Fixed Weighting Issues.\nContact kdsdeveloper@kentdenver.org for any questions or suggestions.\n- Shreyas '17 & Fahim '17");
@@ -59,32 +61,27 @@ $(document).ready(function() {
     JSONTheme.period1FontColor = "#000000";
     JSONTheme.headerBar = "#042d40";
     JSONTheme.linkTextColor = "#195f7d";
-    JSONTheme.selected = "#FFFFFF";
+    JSONTheme.selected1= "#FFFFFF";
     JSONTheme.footerColor = "#152f56";
     JSONTheme.footerTextColor = "#FFFFFF";
     JSONTheme.opacity = "1";
     allColor();
   }
   function customTheme(){
-    realHeader = "#c9c9c9";
-    realTabs = "#9ad3de";
-    realBackground = "#e3e3e3";
-    realAlt = "#89bdd3";
-    realText = "#000000";
     JSONTheme.textFont = "Helvetica";
     JSONTheme.textColor = realText;
     JSONTheme.sidebarColor = realHeader;
     JSONTheme.bgColor =  realBackground;
     JSONTheme.period1Color = realBackground;
-    JSONTheme.period1FontColor = "#000000";
+    JSONTheme.period1FontColor = realText;
     JSONTheme.period2Color = realAlt;
     JSONTheme.period2FontColor = realText;
     JSONTheme.headerColor = realHeader;
-    JSONTheme.headerTextColor = "#000000";
+    JSONTheme.headerTextColor = realText;
     JSONTheme.gradesHeader = realAlt;
     JSONTheme.headerBar = realAlt;
     JSONTheme.linkTextColor = realText;
-    JSONTheme.selected = realTabs;
+    JSONTheme.selected1 = realTabs;
     JSONTheme.footerColor = realTabs;
     JSONTheme.footerTextColor = realText;
     JSONTheme.opacity = "1";
@@ -111,8 +108,8 @@ $(document).ready(function() {
       $('#btn-teacherComments > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor});//properties of list on the side
       $('#btn-classRegistration > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor});//properties of list on the side
       $('#btn-mySchedule > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor});//properties of list on the side
-      $('#btn-gradesAttendance > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor, "backgroundColor": JSONTheme.selected});
-      $('#nav-secondary > li.selected > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor, "backgroundColor": JSONTheme.selected}); // selected stuff
+      $('#btn-gradesAttendance > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor, "backgroundColor": JSONTheme.selected1});
+      $('#nav-secondary > li.selected > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor, "backgroundColor": JSONTheme.selected1}); // selected stuff
       $('#usercontext-bar').css({"backgroundColor": JSONTheme.headerBar}); // header bar
 
       for (var i = 0; i < topLocs.length; i++) { //changes exp, course, C1, Unexcused Abs and Tardies properties
@@ -157,113 +154,7 @@ $(document).ready(function() {
       $('#ATCSfooter').css({"backgroundColor": JSONTheme.footerColor, "color": JSONTheme.footerTextColor, "opacity": JSONTheme.opacity});
     }
 
-  defaultButton = document.createElement("input");
-  $(defaultButton).css('background-color','#881719');
-  $(defaultButton).css('font-size','75%');
-  $(defaultButton).css('font-family','HelveticaNeue-Light');
-        defaultButton.type = 'button';
-        defaultButton.value = 'Default';
-        defaultButton.name = 'FirstButton';
-        defaultButton.onclick = function() {
-          currentButton = "DefaultTheme";
-          Cookies.set("Theme", JSON.stringify(JSONTheme));
-          standardTheme();
-          saveChanges();
-      }
-  $('#content-main > div:nth-child(4) > h2').append(defaultButton);
 
-  CustomButton = document.createElement("input");
-  $(CustomButton).css('background-color','#3366CC');
-  $(CustomButton).css('color','#FFFFFF');
-  $(CustomButton).css('font-size','75%');
-  $(CustomButton).css('font-family','HelveticaNeue-Light');
-        CustomButton.type = 'button';
-        CustomButton.value = 'Custom';
-        CustomButton.name = 'Custom';
-        CustomButton.onclick = function() {
-          $('#content-main > div:nth-child(4) > h2').append('\n <input type="hidden" id="headerColor">');
-          $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="text">');
-          $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="tabs">');
-          $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="background">');
-          $('#content-main > div:nth-child(4) > h2').append('<input type="hidden" id="alt">');
-          var tempText;
-          var tempHeaderColor;
-          var tempAlt;
-          var tempTabs;
-          var tempBackground;
-          var tempText = $("#text").spectrum({
-            showPalette: true,
-            showSelectionPalette: true, // true by default
-            palette: [],
-          });
-          realText = tempText.spectrum("get").toHexString();
-          $("#text").spectrum({
-            showPalette: true,
-            showSelectionPalette: true,
-            palette: [],
-            localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
-          });
-          tempHeaderColor = $("#headerColor").spectrum({
-              showPalette: true,
-              showSelectionPalette: true, // true by default
-              palette: [],
-            });
-            realHeader = tempHeaderColor.spectrum("get").toHexString();
-            $("#headerColor").spectrum({
-              showPalette: true,
-              showSelectionPalette: true,
-              palette: [ ],
-              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
-              realText: $("#headerColor").spectrum("get"),
-            });
-            tempTabs = $("#tabs").spectrum({
-              showPalette: true,
-              showSelectionPalette: true, // true by default
-              palette: [],
-              realText: $("#tabs").spectrum("get"),
-            });
-            realTab = tempTabs.spectrum("get").toHexString();
-            $("#tabs").spectrum({
-              showPalette: true,
-              showSelectionPalette: true,
-              palette: [ ],
-              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
-              realText: $("#tabs").spectrum("get"),
-            });
-            tempAlt = $("#alt").spectrum({
-              showPalette: true,
-              showSelectionPalette: true, // true by default
-              palette: [],
-              realText: $("#alt").spectrum("get"),
-            });
-            realAlt = tempAlt.spectrum("get").toHexString();
-            $("#alt").spectrum({
-              showPalette: true,
-              showSelectionPalette: true,
-              palette: [ ],
-              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
-              realText: $("#alt").spectrum("get"),
-            });
-            tempBackground = $("#background").spectrum({
-              showPalette: true,
-              showSelectionPalette: true, // true by default
-              palette: [],
-              realText: $("#background").spectrum("get"),
-            });
-            realBackground = tempBackground.spectrum("get").toHexString();
-            $("#background").spectrum({
-              showPalette: true,
-              showSelectionPalette: true,
-              palette: [ ],
-              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
-              realText: $("#background").spectrum("get"),
-            });
-            customTheme();
-            saveChanges();
-            currentButton = "CustomTheme";
-            Cookies.set("Theme", JSON.stringify(JSONTheme));
-      }
-  $('#content-main > div:nth-child(4) > h2').append(CustomButton);
 
   body.appendChild(loadingHTML);
   var classPages = new Array();
@@ -285,20 +176,26 @@ $(document).ready(function() {
   JSONTheme.topLocs = topLocs;
 
 
-    function saveChanges() {
-           var objectToStore = {name: storageName, currentName : currentButton};
+    function saveChanges(text, header, tab, alt, background, callback) {
+        var objectToStore = {name:storageName, currentName: currentButton, textColor:text, headerColor:header, tabColor:tab, altColor:alt,backgroundColor:background};
            var jsonfile = {};
            jsonfile[storageName] = objectToStore;
       chrome.storage.local.set(jsonfile, function() {
              // Notify that we saved.
              //alert('Settings saved' + chrome.runtime.lastError);
+             callback();
       });
     }
 
-    function loadData() {
+    var textColors;
+    var headerColor;
+    var backgroundColor;
+    var tabColor;
+    var altColor;
+
+    function loadData(typeOfColor, callback) {
       chrome.storage.local.get(storageName, function(object) {
         var realData = object[storageName];
-        console.log(realData);
         if(realData !== undefined) {
           buttonPref = realData.currentName;
             if (buttonPref == "DefaultTheme") {
@@ -310,19 +207,192 @@ $(document).ready(function() {
         } else {
           buttonPref = "DefaultTheme";
         }
+        var color = realData[typeOfColor];
+        if(color == undefined && typeOfColor == "realHeader"){
+          callback("#c9c9c9");
+        }
+        else if(color == undefined && typeOfColor == "realText"){
+          callback("#000000");
+        }
+        else if(color == undefined && typeOfColor == "realAlt"){
+          callback("#89bdd3");
+        }
+        else if(color == undefined && typeOfColor == "realTabs"){
+          callback("#9ad3de");
+        }
+        else if(color == undefined && typeOfColor == "realBackground"){
+          callback("e3e3e3");
+        } else {
+          callback(color);
+        }
       });
     }
 
-    loadData();
 
   var locTitles = new Array();
   for(var i = 0 ; i < topLocs.length ; i++){
     locTitles[i] = topLocs[i].innerHTML;
   }
 
+  CustomButton = $('#content-main > div:nth-child(4) > h2').append('<div class="dropdown"><button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Custom<span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="menu1"><li role="presentation"><a role="menuitem" tabindex="-1">Header Color<ul><li><input type="hidden" id="headerColor"></li></ul></a></li><li role="presentation"><a role="menuitem" tabindex="-1">Text Color<ul><li> <input type="hidden" id="text"></li></ul></a></li><li role="presentation"><a role="menuitem" tabindex="-1">Tab Color<ul><li> <input type="hidden" id="tabs"></li></ul></a></li><li role="presentation"><a role="menuitem" tabindex="-1">Alternative Color<ul><li> <input type="hidden" id="alt"></li></ul></a></li><li role="presentation"><a role="menuitem" tabindex="-1">Background Color<ul><li> <input type="hidden" id="background"></li></ul></a></li><li role="presentation"><a role="menuitem" tabindex="-1" id = "defaultButton">Default Theme<a></li><li role="presentation"><a role="menuitem" tabindex="-1" id = "customButton">Custom Theme </a></li></ul></div>');
+  $('.dropdown-toggle').dropdown();
+          var tempText;
+          var tempHeaderColor;
+          var tempAlt;
+          var tempTabs;
+          var tempBackground;
+          loadData("headerColor", function(headerColor) {
+            // console.log(headerColor);
+            tempHeaderColor = $("#headerColor").spectrum({
+                showPalette: true,
+                color: headerColor,
+                showSelectionPalette: true, // true by default
+                palette: [],
+              });
+              $("#headerColor").spectrum({
+                showPalette: true,
+                color: headerColor,
+                showSelectionPalette: true,
+                palette: [ ],
+                move: function(color) {
+                  realHeader = tempHeaderColor.spectrum("get").toHexString();
+                  customTheme();
+                  currentButton = "CustomTheme";
+                  var headerColor;
+                  saveChanges(realText, realHeader, realTabs, realAlt, realBackground, function() {
+                  });
+                },
+                showInitial: true,
+                localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
+              });
+              realHeader = tempHeaderColor.spectrum("get").toHexString();
+            });
+        loadData("textColor", function(textColor) {
+          // console.log(textColor);
+          tempText = $("#text").spectrum({
+            showPalette: true,
+            color: textColor,
+            showSelectionPalette: true, // true by default
+            palette: [],
+          });
+          $("#text").spectrum({
+            showPalette: true,
+            color: textColor,
+            showSelectionPalette: true,
+            palette: [],
+            move: function(color) {
+              realText = tempText.spectrum("get").toHexString();
+              customTheme();
+              currentButton = "CustomTheme";
+              var textColor;
+              saveChanges(realText, realHeader, realTabs, realAlt, realBackground, function() {
+              });
+            },
+            showInitial: true,
+            localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
+          });
+          realText = tempText.spectrum("get").toHexString();
+        });
+      loadData("tabColor", function(tabColor) {
+        // console.log(tabColor);
+            tempTabs = $("#tabs").spectrum({
+              showPalette: true,
+              color: tabColor,
+              showSelectionPalette: true, // true by default
+              palette: [],
+            });
+            $("#tabs").spectrum({
+              showPalette: true,
+              color: tabColor,
+              showSelectionPalette: true,
+              palette: [ ],
+              move: function(color) {
+                realTabs = tempTabs.spectrum("get").toHexString();
+                customTheme();
+                currentButton = "CustomTheme";
+                var tabColor;
+                saveChanges(realText, realHeader, realTabs, realAlt, realBackground, function() {
+                });
+              },
+              showInitial: true,
+              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
+            });
+            realTabs = tempTabs.spectrum("get").toHexString();
+          });
+          loadData("altColor", function(altColor) {
+            // console.log(altColor);
+            tempAlt = $("#alt").spectrum({
+              showPalette: true,
+              color: altColor,
+              showSelectionPalette: true, // true by default
+              palette: [],
+            });
+            $("#alt").spectrum({
+              showPalette: true,
+              color: altColor,
+              showSelectionPalette: true,
+              palette: [ ],
+              move: function(color) {
+                realAlt = tempAlt.spectrum("get").toHexString();
+                customTheme();
+                currentButton = "CustomTheme";
+                var altColor;
+                saveChanges(realText, realHeader, realTabs, realAlt, realBackground, function() {
+                });
+              },
+              showInitial: true,
+              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
+            });
+            realAlt = tempAlt.spectrum("get").toHexString();
+          });
+          loadData("backgroundColor", function(backgroundColor) {
+            // console.log(backgroundColor);
+            tempBackground = $("#background").spectrum({
+              showPalette: true,
+              color: backgroundColor,
+              showSelectionPalette: true, // true by default
+              palette: [],
+            });
+            $("#background").spectrum({
+              showPalette: true,
+              color: backgroundColor,
+              showSelectionPalette: true,
+              palette: [ ],
+              move: function(color) {
+                realBackground = tempBackground.spectrum("get").toHexString();
+                customTheme();
+                currentButton = "CustomTheme";
+                var backgroundColor;
+                saveChanges(realText, realHeader, realTabs, realAlt, realBackground, function() {
+                });
+              },
+              showInitial: true,
+              localStorageKey: "spectrum.homepage", // Any Spectrum with the same string will share selection
+            });
+            realBackground = tempBackground.spectrum("get").toHexString();
+          });
+
+          loadData("headerColor", function(headerColor) {
+          });
+            currentButton = "CustomTheme";
+
+  $("#defaultButton" ).click(function() {
+    currentButton = "DefaultTheme";
+    Cookies.set("Theme", JSON.stringify(JSONTheme));
+    standardTheme();
+    saveChanges(realText, realHeader, realTabs, realAlt, realBackground, function() {
+    });
+  });
+  $("#customButton" ).click(function() {
+    currentButton = "CustomTheme";
+    Cookies.set("Theme", JSON.stringify(JSONTheme));
+    customTheme();
+    saveChanges(realText, realHeader, realTabs, realAlt, realBackground, function() {
+    });
+  });
+
   var gradeLoc = locTitles.indexOf("C1");
   grades = new Array();
-
   var temp = new Array();
 
   for(var i = 3 ; i < topCols.length; i++) {

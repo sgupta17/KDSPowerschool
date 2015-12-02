@@ -216,8 +216,7 @@ function main2(){
     JSONTheme = JSON.parse(Cookies.get("Theme"));
   } catch(err) {
   }
-  console.log(JSONTheme);
-  // allColor();
+
   var tables = document.getElementsByTagName("table");
   var header;
   var headerIndex;
@@ -381,70 +380,3 @@ function loadData() {
 
 main();
 });
-
-// function allColor(){
-//   for(var i = 0; i < JSONTheme.topRows.length; i++){
-//     if(i%2 == 0){ //changes every other color starting from period 1
-//       for (var k = 0; k <= JSONTheme.topRows.length; k++){
-//         $('#content-main > div:nth-child(4) > table:nth-child(6) > tbody > tr:nth-child(' + i + ') > td:nth-child(' + k + ')').css({ "background-color": JSONTheme.period1Color, "fontFamily": JSONTheme.textFont, "fontWeight": "100", "color": JSONTheme.period1FontColor});
-//       }
-//     }
-//   }
-//     $('#content-main > div:nth-child(4) > table:nth-child(7) > tbody > tr:nth-child(4) > td').css({ "background-color": JSONTheme.bgColor, "fontFamily": JSONTheme.textFont, "fontWeight": "100", "color": JSONTheme.textColor}); // area with table of Weighted Semester 1 GPA
-//     $('#content-main > div:nth-child(4) > table:nth-child(7) > tbody > tr:nth-child(3) > td > a').css({ "background-color": JSONTheme.bgColor, "fontFamily": JSONTheme.textFont, "fontWeight": "100", "color": JSONTheme.textColor}); // Show dropped classes
-//     $('#legend > p:nth-child(2)').css({ "background-color": JSONTheme.bgColor, "fontFamily": JSONTheme.textFont, "fontWeight": "100", "color": JSONTheme.headerTextColor}); //Attendance Codes
-//     $('#legend > p:nth-child(3)').css({ "background-color": JSONTheme.bgColor, "fontFamily": JSONTheme.textFont, "fontWeight": "100", "color": JSONTheme.headerTextColor}); // Citizenship Codes
-//     $('#legend > p:nth-child(2) > strong').css({ "background-color": JSONTheme.bgColor, "fontFamily": JSONTheme.textFont, "fontWeight": "bold", "color": JSONTheme.headerTextColor}); //Attendance Codes
-//     $('#legend > p:nth-child(3) > strong').css({ "background-color": JSONTheme.bgColor, "fontFamily": JSONTheme.textFont, "fontWeight": "bold", "color": JSONTheme.headerTextColor}); //Citizenship Codes
-//     $('#legend > h3').css({ "background-color": JSONTheme.bgColor, "fontFamily": JSONTheme.textFont, "color": JSONTheme.headerTextColor}); //Legend
-//     $('#nav-main > h3').css({ "background-color": JSONTheme.sidebarColor, "fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor}); //Navigation
-//     $('#btn-gradesHistory > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor}); //properties of list on the side
-//     $('#btn-attendanceHistory > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor});//properties of list on the side
-//     $('#btn-teacherComments > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor});//properties of list on the side
-//     $('#btn-classRegistration > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor});//properties of list on the side
-//     $('#btn-mySchedule > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor});//properties of list on the side
-//     $('#btn-gradesAttendance > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor, "backgroundColor": JSONTheme.selected});
-//     $('#nav-secondary > li.selected > a').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.textColor, "backgroundColor": JSONTheme.selected}); // selected stuff
-//     $('#usercontext-bar').css({"backgroundColor": JSONTheme.headerBar}); // header bar
-//
-//     for (var i = 0; i < JSONTheme.topLocs.length; i++) { //changes exp, course, C1, Unexcused Abs and Tardies properties
-//       JSONTheme.topLocs[i].style.background = JSONTheme.gradesHeader;
-//       JSONTheme.topLocs[i].style.color = JSONTheme.headerTextColor;
-//       JSONTheme.topLocs[i].style.zIndex = "1";
-//       JSONTheme.topLocs[i].style.fontFamily = JSONTheme.textFont;
-//       JSONTheme.topLocs[i].style.fontWeight = "bold";
-//     }
-//     for (var i = 0; i < JSONTheme.topCols.length; i++) { // changes attendence by class, last week and this week properties
-//       JSONTheme.topCols[i].style.background = JSONTheme.gradesHeader;
-//       JSONTheme.topCols[i].style.color = JSONTheme.headerTextColor;
-//       JSONTheme.topCols[i].style.zIndex = "1";
-//       JSONTheme.topCols[i].style.fontFamily = JSONTheme.textFont;
-//       JSONTheme.topCols[i].style.fontWeight = "bold";
-//     }
-//     for (var i = 0; i < JSONTheme.topRows.length; i++) { //changes every other period from period 2
-//       for (var i = 0; i < JSONTheme.topRows.length; i++) { //changes every other period from period 2
-//         for (var i = 5; i < JSONTheme.topRows.length; i++) { //changes every other period from period 2
-//           for(var k = 0; k <= 15; k++){
-//             if(i%2 == 1){
-//               $('#content-main > div:nth-child(4) > table:nth-child(6) > tbody > tr:nth-child(' + i + ') > td:nth-child('+ k +')').css({"fontWeight": "100", "fontFamily": JSONTheme.textFont, "color": JSONTheme.period2FontColor, "backgroundColor": JSONTheme.period2Color, "zIndex": "1"});
-//             }
-//           }
-//         }
-//       }
-//     }
-//     for(var i = 3;i > 0;i--){//changes Attendance Totals properties
-//       $('#content-main > div:nth-child(4) > table:nth-child(6) > tbody > tr:nth-child(' + JSONTheme.topRows.length + ') > td:nth-child('+ i + ')').css({ "background-color": JSONTheme.gradesHeader, "fontFamily": JSONTheme.textFont, "fontWeight": "bold", "color": JSONTheme.headerTextColor});
-//     }
-//
-//     $("#content").css("background-color", JSONTheme.sidebarColor); // changes color of side bar
-//     $('#content-main').css("background-color", JSONTheme.bgColor); //changes color of area behind table of classes
-//
-//     for(var i = 0; i<=5;i++){
-//       $("#content-main > div:nth-child(4) > h" + i).css({ "background-color": JSONTheme.bgColor, "fontFamily": JSONTheme.textFont, "fontWeight": "bold", "color": JSONTheme.headerTextColor}); // changes the properties Grades and Attendance and etc on top
-//     }
-//     $('#branding-powerschool').css({ "background-color": JSONTheme.headerColor});//changes color of header
-//     $('#userName').css({ "background-color": JSONTheme.headerColor, "fontFamily": JSONTheme.textFont, "fontWeight": "100", "color": JSONTheme.textColor}); // color of Welcome <Student>
-//     $('#btnLogout').css({ "background-color": JSONTheme.headerColor, "fontFamily": JSONTheme.textFont, "fontWeight": "100", "color": JSONTheme.textColor}); //Sign out Button
-//     $('#tools > li:nth-child(2) > a').css({ "background-color": JSONTheme.headerColor, "fontFamily": JSONTheme.textFont, "fontWeight": "100", "color": JSONTheme.textColor}); // Help Button
-//     $('#ATCSfooter').css({"backgroundColor": JSONTheme.footerColor, "color": JSONTheme.footerTextColor, "opacity": JSONTheme.opacity});
-//   }
