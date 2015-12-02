@@ -187,7 +187,7 @@ $(document).ready(function() {
       });
     }
 
-    var textColors;
+    var textColor;
     var headerColor;
     var backgroundColor;
     var tabColor;
@@ -209,19 +209,24 @@ $(document).ready(function() {
         }
         var color = realData[typeOfColor];
         if(color == undefined && typeOfColor == "realHeader"){
+          headerColor = "#c9c9c9";
           callback("#c9c9c9");
         }
         else if(color == undefined && typeOfColor == "realText"){
+          textColor = "#000000";
           callback("#000000");
         }
         else if(color == undefined && typeOfColor == "realAlt"){
+          altColor = "#89bdd3";
           callback("#89bdd3");
         }
         else if(color == undefined && typeOfColor == "realTabs"){
+          tabColor = "#9ad3de";
           callback("#9ad3de");
         }
         else if(color == undefined && typeOfColor == "realBackground"){
-          callback("e3e3e3");
+          backgroundColor = "#e3e3e3";
+          callback("#e3e3e3");
         } else {
           callback(color);
         }
