@@ -13,7 +13,7 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
       //   iconUrl: "icon.png"
       // }
 
-      var notifcationID = "KDSNotification";
+      var notificationID = "KDSNotification";
 
       var opt = {
         type: "list",
@@ -27,7 +27,7 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
 
       chrome.notifications.create(notifcationID, opt);
 
-      // chrome.notifications.onClicked.addListener(function(notifcationID) {
+      // chrome.notifications.onClicked.addListener(function(notificationID) {
       //   window.open("https://chrome.google.com/webstore/detail/kent-powerschool-percenta/pcgihmofdilgbglclfjiadhphijcfhej?hl=en", '_blank');
       // });
       chrome.tabs.executeScript(null, {"file": "jquery.min.js"});
