@@ -13,19 +13,19 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
       //   iconUrl: "icon.png"
       // }
 
-      var notificationID = "KDSNotification";
-
-      var opt = {
-        type: "list",
-        title: "Version 3.3.4",
-        message: "IDK",
-        iconUrl: "icon.png",
-        items:
-          [{ title: "1.", message: "Click on icon to see day schedule."},
-          { title: "2.", message: "Find the Easter Egg."}]
-      }
-
-      chrome.notifications.create(notifcationID, opt);
+      // var notificationID = "KDSNotification";
+      //
+      // var opt = {
+      //   type: "list",
+      //   title: "Version 3.3.4",
+      //   message: "IDK",
+      //   iconUrl: "icon.png",
+      //   items:
+      //     [{ title: "1.", message: "Click on icon to see day schedule."},
+      //     { title: "2.", message: "Find the Easter Egg."}]
+      // }
+      //
+      // chrome.notifications.create(notifcationID, opt);
 
       // chrome.notifications.onClicked.addListener(function(notificationID) {
       //   window.open("https://chrome.google.com/webstore/detail/kent-powerschool-percenta/pcgihmofdilgbglclfjiadhphijcfhej?hl=en", '_blank');

@@ -149,8 +149,6 @@ $(document).ready(function() {
       $('#ATCSfooter').css({"backgroundColor": JSONTheme.footerColor, "color": JSONTheme.footerTextColor, "opacity": JSONTheme.opacity});
     }
 
-
-
   body.appendChild(loadingHTML);
   var classPages = new Array();
   var classPageHTML = new Array();
@@ -177,7 +175,6 @@ $(document).ready(function() {
            jsonfile[storageName] = objectToStore;
       chrome.storage.local.set(jsonfile, function() {
              // Notify that we saved.
-             //alert('Settings saved' + chrome.runtime.lastError);
              callback();
       });
     }
@@ -190,41 +187,50 @@ $(document).ready(function() {
 
     function loadData(typeOfColor, callback) {
       chrome.storage.local.get(storageName, function(object) {
-        var realData = object[storageName];
-        if(realData !== undefined) {
-          buttonPref = realData.currentName;
-            if (buttonPref == "DefaultTheme") {
-              standardTheme();
-            } else if (buttonPref == "CustomTheme") {
-              customTheme();
+        try{
+          var realData = object[storageName];
+          if(realData !== undefined) {
+            buttonPref = realData.currentName;
+              if (buttonPref == "DefaultTheme") {
+                standardTheme();
+              } else if (buttonPref == "CustomTheme") {
+                customTheme();
+              } else {
+                buttonPref = "DefaultTheme";
+                standardTheme();
+              }
+          }
+            var color = realData[typeOfColor];
+            callback(color);
+        } catch (e) {
+          if(realData === undefined){
+            buttonPref = "DefaultTheme";
+            currentButton = "DefaultTheme";
+            saveChanges();
+            standardTheme();
+          } else if (color === undefined){
+              if(typeOfColor == "headerColor"){
+                callback("#c9c9c9");
+                headerColor = "#c9c9c9";
+              }
+              else if(typeOfColor == "textColor"){
+                callback("#000000");
+                textColor = "#000000";
+              }
+              else if(typeOfColor == "altColor"){
+                callback("#89bdd3");
+                altColor = "#89bdd3";
+              }
+              else if(typeOfColor == "tabColor"){
+                callback("#9ad3de");
+                tabColor = "#9ad3de";
+              }
+              else if(typeOfColor == "backgroundColor"){
+                callback("#e3e3e3");
+                backgroundColor = "#e3e3e3";
+              }
             }
-          storageName = realData.name;
-        } else {
-          buttonPref = "DefaultTheme";
-        }
-        var color = realData[typeOfColor];
-        if(color == undefined && typeOfColor == "realHeader"){
-          headerColor = "#c9c9c9";
-          callback("#c9c9c9");
-        }
-        else if(color == undefined && typeOfColor == "realText"){
-          textColor = "#000000";
-          callback("#000000");
-        }
-        else if(color == undefined && typeOfColor == "realAlt"){
-          altColor = "#89bdd3";
-          callback("#89bdd3");
-        }
-        else if(color == undefined && typeOfColor == "realTabs"){
-          tabColor = "#9ad3de";
-          callback("#9ad3de");
-        }
-        else if(color == undefined && typeOfColor == "realBackground"){
-          backgroundColor = "#e3e3e3";
-          callback("#e3e3e3");
-        } else {
-          callback(color);
-        }
+          }
       });
     }
 
