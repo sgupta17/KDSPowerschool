@@ -191,48 +191,27 @@ $(document).ready(function() {
           var realData = object[storageName];
           if(realData !== undefined) {
             buttonPref = realData.currentName;
-              if (buttonPref == "DefaultTheme") {
-                standardTheme();
-              } else if (buttonPref == "CustomTheme") {
-                customTheme();
-              } else {
-                buttonPref = "DefaultTheme";
-                standardTheme();
-              }
-          }
-            var color = realData[typeOfColor];
-            callback(color);
-        } catch (e) {
-          if(realData === undefined){
-            buttonPref = "DefaultTheme";
-            currentButton = "DefaultTheme";
-            saveChanges();
-            standardTheme();
-          } else if (color === undefined){
-              if(typeOfColor == "headerColor"){
-                callback("#c9c9c9");
-                headerColor = "#c9c9c9";
-              }
-              else if(typeOfColor == "textColor"){
-                callback("#000000");
-                textColor = "#000000";
-              }
-              else if(typeOfColor == "altColor"){
-                callback("#89bdd3");
-                altColor = "#89bdd3";
-              }
-              else if(typeOfColor == "tabColor"){
-                callback("#9ad3de");
-                tabColor = "#9ad3de";
-              }
-              else if(typeOfColor == "backgroundColor"){
-                callback("#e3e3e3");
-                backgroundColor = "#e3e3e3";
-              }
+            if (buttonPref == "DefaultTheme") {
+              standardTheme();
+            } else if (buttonPref == "CustomTheme") {
+              customTheme();
             }
           }
-      });
-    }
+          var color = realData[typeOfColor];
+          callback(color);
+        } catch (e) {
+            buttonPref = "DefaultTheme";
+            currentButton = "DefaultTheme";
+            standardTheme();
+            headerColor = "#c9c9c9";
+            textColor = "#000000";
+            altColor = "#89bdd3";
+            tabColor = "#9ad3de";
+            backgroundColor = "#e3e3e3";
+            saveChanges(textColor, headerColor, tabColor, altColor, backgroundColor, callback);
+          }
+        });
+      }
 
   var locTitles = new Array();
   for(var i = 0 ; i < topLocs.length ; i++){
