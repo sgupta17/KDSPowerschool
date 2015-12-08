@@ -25,11 +25,14 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
       //     { title: "2.", message: "Find the Easter Egg."}]
       // }
       //
+
       // chrome.notifications.create(notifcationID, opt);
+
 
       // chrome.notifications.onClicked.addListener(function(notificationID) {
       //   window.open("https://chrome.google.com/webstore/detail/kent-powerschool-percenta/pcgihmofdilgbglclfjiadhphijcfhej?hl=en", '_blank');
       // });
+
       chrome.tabs.executeScript(null, {"file": "jquery.min.js"});
       chrome.tabs.executeScript(null, {"file": "js.cookie.js"});
       chrome.tabs.executeScript(null, {"file": "allpages.js"});
@@ -39,8 +42,6 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
         chrome.tabs.executeScript(null, {"file": "mainpage.js"});
       } else if(url.indexOf("scores") != -1 ) {
         chrome.tabs.executeScript(null, {"file": "extension.js"});
-
       }
     }
-
 });

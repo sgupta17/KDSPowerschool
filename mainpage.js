@@ -42,6 +42,11 @@ $(document).ready(function() {
   var opacity = "";
 
 
+  if(Cookies.get("Alert") != "done"){
+    window.alert("Version 3.3.2 - Fixed Weighting Issues.\nContact kdsdeveloper@kentdenver.org for any questions or suggestions.\n- Shreyas '17 & Fahim '17");
+  }
+  Cookies.set("Alert", "done");
+
   function standardTheme(){
     JSONTheme.textFont = "Helvetica";
     JSONTheme.textColor = "#000000";
@@ -212,6 +217,7 @@ $(document).ready(function() {
           }
         });
       }
+
 
   var locTitles = new Array();
   for(var i = 0 ; i < topLocs.length ; i++){

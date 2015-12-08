@@ -16,11 +16,15 @@ if(document.getElementById("KDSNEWLoading") === null) {
   $('#ATCSfooter').css('width','100%');
   $('#ATCSfooter').css('text-align','center');
   $('#ATCSfooter').css('padding-top','5px');
+
   $('#ATCSfooter').css('height','30px');
 }
+
 
   $('#ATCSfooter').dblclick(function() {
     $('#ATCSfooter').click(function() {
     window.location.assign("http://russell-stewart.github.io/SuperPig-Game/");
     });
   });
+
+}
