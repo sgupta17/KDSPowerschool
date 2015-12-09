@@ -42,10 +42,10 @@ $(document).ready(function() {
   var opacity = "";
 
 
-  if(Cookies.get("Alert") != "done"){
-    window.alert("Version 3.3.2 - Fixed Weighting Issues.\nContact kdsdeveloper@kentdenver.org for any questions or suggestions.\n- Shreyas '17 & Fahim '17");
-  }
-  Cookies.set("Alert", "done");
+  // if(Cookies.get("Alert") != "done"){
+  //   window.alert("Version 3.3.2 - Fixed Weighting Issues.\nContact kdsdeveloper@kentdenver.org for any questions or suggestions.\n- Shreyas '17 & Fahim '17");
+  // }
+  // Cookies.set("Alert", "done");
 
   function standardTheme(){
     JSONTheme.textFont = "Helvetica";
@@ -84,6 +84,26 @@ $(document).ready(function() {
     JSONTheme.selected1 = realTabs;
     JSONTheme.footerColor = realTabs;
     JSONTheme.footerTextColor = realText;
+    JSONTheme.opacity = "1";
+    allColor();
+  }
+  function theme1Button(){
+    JSONTheme.textFont = "Helvetica";
+    JSONTheme.textColor = "#000000";
+    JSONTheme.sidebarColor = "#c9c9c9";
+    JSONTheme.bgColor =  "#E3E3E3";
+    JSONTheme.period1Color =  "#E3E3E3";
+    JSONTheme.period1FontColor = "#000000";
+    JSONTheme.period2Color = "#89bdd3";
+    JSONTheme.period2FontColor = "#000000";
+    JSONTheme.headerColor = "#c9c9c9";
+    JSONTheme.headerTextColor = "#000000";
+    JSONTheme.gradesHeader = "#89bdd3";
+    JSONTheme.headerBar = "#89bdd3";
+    JSONTheme.linkTextColor = "#000000";
+    JSONTheme.selected1 = "#9ad3de";
+    JSONTheme.footerColor = "#9ad3de";
+    JSONTheme.footerTextColor = "#000000";
     JSONTheme.opacity = "1";
     allColor();
   }
@@ -200,6 +220,8 @@ $(document).ready(function() {
               standardTheme();
             } else if (buttonPref == "CustomTheme") {
               customTheme();
+            } else if(buttonPref == "theme1Button") {
+              theme1Button();
             }
           }
           var color = realData[typeOfColor];
@@ -214,6 +236,8 @@ $(document).ready(function() {
             tabColor = "#9ad3de";
             backgroundColor = "#e3e3e3";
             saveChanges(textColor, headerColor, tabColor, altColor, backgroundColor, callback);
+            var color = realData[typeOfColor];
+            callback(color);
           }
         });
       }
@@ -224,7 +248,7 @@ $(document).ready(function() {
     locTitles[i] = topLocs[i].innerHTML;
   }
 
-  CustomButton = $('#content-main > div:nth-child(4) > h2').append('<div class="dropdown"><button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Custom<span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="menu1"><li role="presentation"><a role="menuitem" tabindex="-1">Header Color<ul><li><input type="hidden" id="headerColor"></li></ul></a></li><li role="presentation"><a role="menuitem" tabindex="-1">Text Color<ul><li> <input type="hidden" id="text"></li></ul></a></li><li role="presentation"><a role="menuitem" tabindex="-1">Tab Color<ul><li> <input type="hidden" id="tabs"></li></ul></a></li><li role="presentation"><a role="menuitem" tabindex="-1">Alternative Color<ul><li> <input type="hidden" id="alt"></li></ul></a></li><li role="presentation"><a role="menuitem" tabindex="-1">Background Color<ul><li> <input type="hidden" id="background"></li></ul></a></li><li role="presentation"><a role="menuitem" tabindex="-1" id = "defaultButton">Default Theme<a></li><li role="presentation"><a role="menuitem" tabindex="-1" id = "customButton">Custom Theme </a></li></ul></div>');
+  CustomButton = $('#content-main > div:nth-child(4) > h2').append('<div class="dropdown"><button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Themes &nbsp;<span style="font-size:15px">&#8661</span></button><ul style="list-style-type:none" class="dropdown-menu" role="menu" aria-labelledby="menu1"><li style="list-style-type:none" role="presentation"><a role="menuitem" tabindex="-1">Header Color<ul style="list-style-type:none"></li><input type="hidden" id="headerColor"></ul></a><li style="list-style-type:none" role="presentation"><a role="menuitem" tabindex="-1">Text Color<ul style="list-style-type:none"></li><input type="hidden" id="text"></ul></a><li style="list-style-type:none" role="presentation"><a role="menuitem" tabindex="-1">Tab Color<ul style="list-style-type:none"></li><input type="hidden" id="tabs"></ul></a><li style="list-style-type:none" role="presentation"><a role="menuitem" tabindex="-1">Alternative Color<ul style="list-style-type:none"></li><input type="hidden" id="alt"></ul></a><li style="list-style-type:none" role="presentation"><a role="menuitem" tabindex="-1">Background Color<ul style="list-style-type:none"></li><input type="hidden" id="background"></ul></a><li role="presentation"><a role="menuitem" tabindex="-1" id = "defaultButton">Default Theme</a></li><li role="presentation"><a role="menuitem" tabindex="-1" id = "customButton">Custom Theme</a></li><li role="presentation"><a role="menuitem" tabindex="-1" id = "theme1Button">Blue and Gray</a></li></ul></div>');
   $('.dropdown-toggle').dropdown();
           var tempText;
           var tempHeaderColor;
@@ -377,6 +401,13 @@ $(document).ready(function() {
     currentButton = "CustomTheme";
     Cookies.set("Theme", JSON.stringify(JSONTheme));
     customTheme();
+    saveChanges(realText, realHeader, realTabs, realAlt, realBackground, function() {
+    });
+  });
+  $("#theme1Button" ).click(function() {
+    currentButton = "theme1Button";
+    Cookies.set("Theme", JSON.stringify(JSONTheme));
+    theme1Button();
     saveChanges(realText, realHeader, realTabs, realAlt, realBackground, function() {
     });
   });
