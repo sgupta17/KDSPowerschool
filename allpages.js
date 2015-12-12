@@ -17,16 +17,32 @@ if(document.getElementById("KDSNEWLoading") === null) {
   $('#ATCSfooter').css('text-align','center');
   $('#ATCSfooter').css('padding-top','5px');
   $('#ATCSfooter').css('height','30px');
-}
 
   var safe = true;
   $('#ATCSfooter').dblclick(function() {
     $('#ATCSfooter').click(function() {
-
       if(safe) {
         safe = false;
         window.open("http://russell-stewart.github.io/SuperPig-Game/", '_blank');
       }
-    // window.location.assign("http://russell-stewart.github.io/SuperPig-Game/");
     });
   });
+
+
+  var htmlFeedback = "<div id = 'Feedback'><a href='https://docs.google.com/a/kentdenver.org/forms/d/1FOYf_IzhR14SS8c1EdR9OKUHZDAPyAH3iTQPmb0AAKs/viewform'>KDS Extension</a></div>";
+  $('#nav-main > ul').append(htmlFeedback);
+  // $('#Feedback').css('padding-left','10px');
+  // $('#Feedback').css('padding-bottom','100px');
+  // $('#Feedback').css('background-color','#152f56');
+  // $('#Feedback').css('font-weight','100');
+  $('#Feedback').css('color','#FFFFFF');
+  $('#Feedback').css('height','100%');
+  $('#Feedback').css('width','100%');
+  // $('#Feedback').css('background-repeat','no-repeat');
+  // $('#Feedback').css('background-image', 'url('+chrome.extension.getURL('icon32.png')+')');
+  $("#Feedback").hover(function(){
+    $(this).css("background","#a3bfcc");
+  },function(){
+    $(this).css("background","");
+  });
+}

@@ -30,7 +30,8 @@
   },
 
   "web_accessible_resources": [
-   "icon.png"
+   "icon.png",
+   "icon32.png"
  ],
 
   "permissions": [
