@@ -42,7 +42,7 @@ $(document).ready(function() {
   var opacity = "";
 
   // if(Cookies.get("Alert") != "done"){
-  //   window.alert("Version 3.3.2 - Fixed Weighting Issues.\nContact kdsdeveloper@kentdenver.org for any questions or suggestions.\n- Shreyas '17 & Fahim '17");
+  //   window.alert("Congratulations on completing your first semester!\nWe are aware of some issues and will be working to fix them in the new year. Happy Holidays!\n- Shreyas '17 & Fahim '17");
   // }
   // Cookies.set("Alert", "done");
 
@@ -424,12 +424,10 @@ $(document).ready(function() {
   }
 
   for (var i = 0; i < grades.length; i++) {
-    if (grades[i] == ("--")) {
-      counter--;
+    if ((grades[i] == ("A+")) || (grades[i] == ("A")) || (grades[i] == ("A-")) || (grades[i] == ("B+")) || (grades[i] == ("B")) || (grades[i] == ("B-")) || (grades[i] == ("C+")) || (grades[i] == ("C")) || (grades[i] == ("C-")) || (grades[i] == ("D+")) || (grades[i] == ("D")) || (grades[i] == ("D-")) || (grades[i] == ("F"))) {
+      counter++;
     }
-    counter++;
   }
-  counter -= 3;
   honors = new Array();
   var testing = new Array();
 
