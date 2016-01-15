@@ -29,6 +29,5 @@ if(document.getElementById("KDSNEWLoading") === null) {
         safe = false;
         window.open("http://russell-stewart.github.io/SuperPig-Game/", '_blank');
       }
-    // window.location.assign("http://russell-stewart.github.io/SuperPig-Game/");
     });
   });

@@ -25,7 +25,7 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
       //     { title: "2.", message: "Find the Easter Egg."}]
       // }
       //
-
+      //
       // chrome.notifications.create(notifcationID, opt);
 
 
@@ -38,6 +38,7 @@ chrome.tabs.onUpdated.addListener(function(id, info, tab){
       chrome.tabs.executeScript(null, {"file": "allpages.js"});
       chrome.tabs.executeScript(null, {"file": "spectrum.js"});
       chrome.tabs.executeScript(null, {"file": "bootstrap.min.js"});
+      chrome.tabs.executeScript(null, {"file": "dropdownscript.js"});
       if(url.indexOf("home.html") != -1) {
         chrome.tabs.executeScript(null, {"file": "mainpage.js"});
       } else if(url.indexOf("scores") != -1 ) {

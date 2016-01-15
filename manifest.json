@@ -19,14 +19,14 @@
   "content_scripts": [
     {
       "matches": ["https://powerschool.kentdenver.org/*"],
-      "css": ["spectrum.css", "bootstrap.css"]
+      "css": ["spectrum.css", "bootstrap.css", "dropdownstyles.css"]
     }
   ],
 
   "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
+    "16": "iconLarge.png",
+    "48": "iconLarge.png",
+    "128": "iconLarge.png"
   },
 
   "web_accessible_resources": [
