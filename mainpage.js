@@ -419,7 +419,7 @@ $(document).ready(function() {
 
   for(var i = 3 ; i < topCols.length; i++) {
     temp = topRows[i];
-    grades[i] = temp.getElementsByTagName("td")[12];
+    grades[i] = temp.getElementsByTagName("td")[13];
     grades[i] = grades[i].innerText;
   }
 
@@ -465,7 +465,11 @@ $(document).ready(function() {
   }
   currentGPA = sum/counter;
   var numb = currentGPA;
-  numb = numb.toFixed(3);
+  if (sum != 0) {
+    numb = numb.toFixed(3);
+  } else {
+    numb = "No Grades Entered";
+  }
   addElement(numb);
 }
 

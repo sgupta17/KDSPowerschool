@@ -29,25 +29,27 @@ if(document.getElementById("KDSNEWLoading") === null) {
   });
 
 
-  var htmlFeedback = "<div id = 'Feedback'><a href='https://docs.google.com/a/kentdenver.org/forms/d/1FOYf_IzhR14SS8c1EdR9OKUHZDAPyAH3iTQPmb0AAKs/viewform'>KDS Extension</a></div>";
+//   var htmlFeedback = "<div id = 'Feedback'><a href='https://docs.google.com/a/kentdenver.org/forms/d/1FOYf_IzhR14SS8c1EdR9OKUHZDAPyAH3iTQPmb0AAKs/viewform'>KDS Extension</a></div>";
+//
+//   $('#nav-main > ul').append(htmlFeedback);
+//   // $('#Feedback').css('padding-left','10px');
+//   // $('#Feedback').css('padding-bottom','100px');
+//   // $('#Feedback').css('background-color','#152f56');
+//   // $('#Feedback').css('font-weight','100');
+//   $('#Feedback').css('color','#FFFFFF');
+//   $('#Feedback').css('height','100%');
+//   $('#Feedback').css('width','100%');
+//   $('#Feedback').css('background-repeat','no-repeat');
+//   $('#Feedback').css('background-image', 'url('+chrome.extension.getURL('icon32.png')+')');
+//   $("#Feedback").hover(function(){
+//     $(this).css("background","#a3bfcc");
+//     $('#Feedback').css('background-repeat','no-repeat');
+//     $('#Feedback').css('background-image', 'url('+chrome.extension.getURL('icon32.png')+')');
+//   },function(){
+//     $(this).css("background","");
+//     $('#Feedback').css('background-repeat','no-repeat');
+//     $('#Feedback').css('background-image', 'url('+chrome.extension.getURL('icon32.png')+')');
+//   });
 
-  $('#nav-main > ul').append(htmlFeedback);
-  // $('#Feedback').css('padding-left','10px');
-  // $('#Feedback').css('padding-bottom','100px');
-  // $('#Feedback').css('background-color','#152f56');
-  // $('#Feedback').css('font-weight','100');
-  $('#Feedback').css('color','#FFFFFF');
-  $('#Feedback').css('height','100%');
-  $('#Feedback').css('width','100%');
-  $('#Feedback').css('background-repeat','no-repeat');
-  $('#Feedback').css('background-image', 'url('+chrome.extension.getURL('icon32.png')+')');
-  $("#Feedback").hover(function(){
-    $(this).css("background","#a3bfcc");
-    $('#Feedback').css('background-repeat','no-repeat');
-    $('#Feedback').css('background-image', 'url('+chrome.extension.getURL('icon32.png')+')');
-  },function(){
-    $(this).css("background","");
-    $('#Feedback').css('background-repeat','no-repeat');
-    $('#Feedback').css('background-image', 'url('+chrome.extension.getURL('icon32.png')+')');
-  });
-}
+
+  } // DO NOT DELETE
