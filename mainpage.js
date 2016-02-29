@@ -443,7 +443,10 @@ $(document).ready(function() {
     } else {
       honors[i] = 1;
     }
+    console.log(honors[i]);
+
   }
+
 
   for (var i = 0; i < grades.length; i++) {
     switch (grades[i]) {
@@ -463,6 +466,8 @@ $(document).ready(function() {
       default: sum+= 0; break;
     }
   }
+  console.log(sum);
+  console.log(counter);
   currentGPA = sum/counter;
   var numb = currentGPA;
   if (sum != 0) {
