@@ -7,7 +7,7 @@
 
 if(document.getElementById("KDSNEWLoading") === null) {
   body.appendChild(loadingHTML);
-  var htmlInsert = "<div id = 'ATCSfooter'>Powered by Advanced Topics: Programming</div>";
+  var htmlInsert = "<div id = 'ATCSfooter'>Powered by iGraviti</div>";
   $('body').append(htmlInsert);
   $('#ATCSfooter').css('position','fixed');
   $('#ATCSfooter').css('bottom','0px');
@@ -19,14 +19,14 @@ if(document.getElementById("KDSNEWLoading") === null) {
   $('#ATCSfooter').css('height','30px');
 
   var safe = true;
-  $('#ATCSfooter').dblclick(function() {
+  // $('#ATCSfooter').dblclick(function() {
     $('#ATCSfooter').click(function() {
       if(safe) {
         safe = false;
-        window.open("http://russell-stewart.github.io/SuperPig-Game/", '_blank');
+        window.open("http://igraviti.com", '_blank');
       }
     });
-  });
+  // });
 
 
 //   var htmlFeedback = "<div id = 'Feedback'><a href='https://docs.google.com/a/kentdenver.org/forms/d/1FOYf_IzhR14SS8c1EdR9OKUHZDAPyAH3iTQPmb0AAKs/viewform'>KDS Extension</a></div>";
