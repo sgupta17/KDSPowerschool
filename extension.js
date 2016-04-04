@@ -17,6 +17,7 @@ var JSONTheme;
 
 $(document).ready(function() {
 
+
 function showOrHideCategories(){
   if(document.getElementsByName("weighted")[0].checked) {
     var htmlToInsert = '<form style="padding-left:22px"action=""><input type="checkbox" name="weighted" value="Weighted" checked="true"><strong>Weighted by category:</strong><br><br>';
@@ -209,6 +210,7 @@ function main() {
     if(isWeighted === undefined) isWeighted = false;
     loadData();
   }
+
 }
 
 function main2(){
@@ -342,6 +344,9 @@ function main2(){
   }
   document.getElementsByName("weighted")[0].addEventListener("change", showOrHideCategories, false);
 
+  for(k = 0; k < topRows.length; k++){
+    console.log(gradeHTML[8]);
+  }
 }
 
 function saveChanges() {
