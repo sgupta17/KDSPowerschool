@@ -15,13 +15,16 @@ var globalTotalPoints;
 var currentIndex;
 var JSONTheme;
 
+var gradeTable;
+var checkSpots;
+
 $(document).ready(function() {
 
 function showOrHideCategories(){
   if(document.getElementsByName("weighted")[0].checked) {
     var htmlToInsert = '<form style="padding-left:22px"action=""><input type="checkbox" name="weighted" value="Weighted" checked="true"><strong>Weighted by category:</strong><br><br>';
     htmlToInsert +='<table id="cats" border=1><tr><th align="center">Category</th><th align="center">Weighting</th><th style="z-index:1; text-align:center">Earned Points</th><th align="center">Total Points</th><th align="center">Percentage</th></tr>';
-    console.log(globalScoreData);
+    // console.log(globalScoreData);
     for(var i = 0 ; i < categories.length ; i++) {
       htmlToInsert +='<tr><td align="center">' + categories[i]+'</td>';
       var weight = "";
@@ -212,10 +215,6 @@ function main() {
 }
 
 function main2(){
-  try {
-    JSONTheme = JSON.parse(Cookies.get("Theme"));
-  } catch(err) {
-  }
 
   var tables = document.getElementsByTagName("table");
   var header;
@@ -233,6 +232,7 @@ function main2(){
   }
   var topRows = finalHeader.getElementsByTagName("tr");
   var topLocs = topRows[0].getElementsByTagName("th");
+
   var gradeIndex;
   var classNameIndex;
   for(var i = 0 ; i < topLocs.length ; i++){
@@ -252,6 +252,7 @@ function main2(){
   categories = new Array();
   var rows = header.getElementsByTagName("tr");
   var locs = rows[0].getElementsByTagName("th");
+
   var locTitles = new Array();
   for(var i = 0 ; i < locs.length ; i++){
     locTitles[i] = locs[i].innerHTML;
@@ -268,6 +269,16 @@ function main2(){
     var singleScore = new Array();
     var purple = parsedRows[scoreLoc+2].innerHTML;
     var orange = parsedRows[scoreLoc+3].innerHTML;
+
+    // var rainbow;
+    //   if($(parsedRows[scoreLoc + 5]).find('input').is(':checked')) {
+    //     rainbow = "";
+    //   } else {
+    //     rainbow = "unicorn";
+    //   }
+    // console.log(rainbow);
+    // $("input[type=checkbox]").on( "click", main2);
+
     if(purple == "" && orange == "" && parsedRows[scoreLoc+4].innerHTML.indexOf("Score Not Published") == -1) {
       singleScore[0] = parsedRows[categoryLoc].innerHTML;
       if(singleScore[0].indexOf(">") > -1) {
