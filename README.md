@@ -4,5 +4,8 @@ This chrome extension allows Kent Denver students to calculate the percentage of
 
 Email sgupta17@kentdenver.org with any questions, concerns or ideas for future versions. Thanks!
 
-Created by:
-Shreyas Gupta '17, Fahim Choudhury '17, Wesley Dencker '15, Jeremy Poley '15, Harry James '14
+##License
+Protected by MIT License - View license.txt for details.
+
+##Creators
+[Shreyas Gupta '17](https://www.linkedin.com/in/shreyasgupta17), Fahim Choudhury '17, Wesley Dencker '15, Jeremy Poley '15, Harry James '14
