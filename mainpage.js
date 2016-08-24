@@ -14,7 +14,10 @@ $(document).ready(function() {
     if(document.getElementById("KDSPSLoading") === null) {
 
   // if(Cookies.get("Alert") != "done"){
-  //   window.alert("Congratulations on completing your first semester!\nWe are aware of some issues and will be working to fix them in the new year. Happy Holidays!\n- Shreyas '17 & Fahim '17");
+  //   // window.alert("Good luck everyone with APs and Finals\nPlease take a moment to fill out this quick survey.\n- Shreyas '17 & Fahim '17");
+  //   if (window.confirm('If you click "ok" you would be redirected . Cancel will load this website ')) {
+  //     window.location.href='https://www.google.com/chrome/browser/index.html';
+  //   };
   // }
   // Cookies.set("Alert", "done");
 
@@ -46,10 +49,22 @@ $(document).ready(function() {
   grades = new Array();
   var temp = new Array();
 
+
   for(var i = 3 ; i < topCols.length; i++) {
+    var d = new Date();
+    var n = d.getMonth();
+
     temp = topRows[i];
-    grades[i] = temp.getElementsByTagName("td")[13];
+    if (n>6) {
+      grades[i] = temp.getElementsByTagName("td")[12];
+    } else {
+      grades[i] = temp.getElementsByTagName("td")[13];
+    }
     grades[i] = grades[i].innerText;
+
+    var findbreak;
+    findbreak = grades[i].indexOf("\n");
+    grades[i] = grades[i].substring(0, findbreak);
   }
 
   for (var i = 0; i < grades.length; i++) {

@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Kent Powerschool Percentage Calculator",
-  "description": "This extension displays percentages of grades in Powerschool and allows the user to calculate updates to their grade.",
-  "version": "4.1",
+  "description": "Displays percentages of grades and current semester GPA in Powerschool and allows the user to calculate updates to their grade.",
+  "version": "4.1.3",
 
   "browser_action": {
     "default_title": "KDS Powerschool Grade Calculator",

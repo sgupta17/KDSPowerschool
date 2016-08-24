@@ -200,7 +200,6 @@ function main() {
   var gradeHTML = topRows[1].getElementsByTagName("td")[gradeIndex];
   finalGradeHTML = gradeHTML;
   className = topRows[1].getElementsByTagName("td")[classNameIndex].innerHTML;
-
   var gradeText = gradeHTML.innerHTML;
 
   var loadingHTML = document.createElement("div");
@@ -246,17 +245,19 @@ function main2(){
   var gradeHTML = topRows[1].getElementsByTagName("td")[gradeIndex];
   finalGradeHTML = gradeHTML;
   className = topRows[1].getElementsByTagName("td")[classNameIndex].innerHTML;
-
   var gradeText = gradeHTML.innerHTML;
 
   categories = new Array();
   var rows = header.getElementsByTagName("tr");
   var locs = rows[0].getElementsByTagName("th");
+  console.log(rows);
+  console.log(locs);
 
   var locTitles = new Array();
   for(var i = 0 ; i < locs.length ; i++){
     locTitles[i] = locs[i].innerHTML;
   }
+  console.log(locTitles);
 
   var scoreData = new Array();
   var categoryLoc = locTitles.indexOf("Category");
