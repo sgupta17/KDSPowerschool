@@ -61,10 +61,11 @@ $(document).ready(function() {
       grades[i] = temp.getElementsByTagName("td")[13];
     }
     grades[i] = grades[i].innerText;
-
-    var findbreak;
-    findbreak = grades[i].indexOf("\n");
-    grades[i] = grades[i].substring(0, findbreak);
+    if(grades[i].indexOf("%") > -1) {
+      var findbreak;
+      findbreak = grades[i].indexOf("\n");
+      grades[i] = grades[i].substring(0, findbreak);
+    }
   }
 
   for (var i = 0; i < grades.length; i++) {
