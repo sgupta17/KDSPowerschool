@@ -50,7 +50,7 @@ $(document).ready(function() {
   var temp = new Array();
 
 
-  for(var i = 3 ; i < topCols.length; i++) {
+  for(var i = 3 ; i < topCols.length - 1; i++) {
     var d = new Date();
     var n = d.getMonth();
 
@@ -67,8 +67,8 @@ $(document).ready(function() {
       grades[i] = grades[i].substring(0, findbreak);
     }
   }
-
   for (var i = 0; i < grades.length; i++) {
+    console.log(grades[i]);
     if ((grades[i] == ("A+")) || (grades[i] == ("A")) || (grades[i] == ("A-")) || (grades[i] == ("B+")) || (grades[i] == ("B")) || (grades[i] == ("B-")) || (grades[i] == ("C+")) || (grades[i] == ("C")) || (grades[i] == ("C-")) || (grades[i] == ("D+")) || (grades[i] == ("D")) || (grades[i] == ("D-")) || (grades[i] == ("F"))) {
       counter++;
     }
@@ -76,7 +76,7 @@ $(document).ready(function() {
   honors = new Array();
   var testing = new Array();
 
-  for(var i = 3 ; i < topCols.length; i++) {
+  for(var i = 3 ; i < topCols.length - 1; i++) {
     testing = topRows[i];
     honors[i] = testing.getElementsByTagName("td")[11];
     if ((honors[i].innerHTML.indexOf("Honors") >= 0)) {
