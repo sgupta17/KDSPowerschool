@@ -85,6 +85,8 @@ $(document).ready(function() {
       honors[i] = 1.1;
     } else if ((honors[i].innerHTML.indexOf("Adv") >= 0)) {
       honors[i] = 1.1;
+    } else if ((honors[i].innerHTML.indexOf("Multi") >= 0)) {
+      honors[i] = 1.1;
     } else {
       honors[i] = 1;
     }

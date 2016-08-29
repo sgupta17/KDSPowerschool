@@ -250,14 +250,11 @@ function main2(){
   categories = new Array();
   var rows = header.getElementsByTagName("tr");
   var locs = rows[0].getElementsByTagName("th");
-  console.log(rows);
-  console.log(locs);
 
   var locTitles = new Array();
   for(var i = 0 ; i < locs.length ; i++){
     locTitles[i] = locs[i].innerHTML;
   }
-  console.log(locTitles);
 
   var scoreData = new Array();
   var categoryLoc = locTitles.indexOf("Category");
@@ -368,11 +365,6 @@ function saveChanges() {
 }
 
 // document.body.onload = addElement;
-
-// function addElement () {
-//   var newDiv = '<div style="font-weight:bold; margin-bottom:10px">Powered by: Advanced Topics in Programming</div>';
-//   $($('#legend > p:nth-child(2)')).prepend(newDiv);
-// }
 
 function loadData() {
   chrome.storage.sync.get(className, function(object) {

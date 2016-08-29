@@ -6,7 +6,7 @@
 
 if(document.getElementById("KDSNEWLoading") === null) {
   body.appendChild(loadingHTML);
-  var htmlInsert = "<div id = 'ATCSfooter'>Powered by iGraviti || Shreyas Gupta & Fahim Choudhury</div>";
+  var htmlInsert = "<a href = 'http://igraviti.com'><div id = 'ATCSfooter'>Powered by iGraviti || Shreyas Gupta & Fahim Choudhury</div></a>";
   $('body').append(htmlInsert);
   $('body').css('font-family','HelveticaNeue-Light');
   $('#ATCSfooter').css('position','fixed');
@@ -19,17 +19,10 @@ if(document.getElementById("KDSNEWLoading") === null) {
   $('#ATCSfooter').css('height','30px');
 
   var safe = true;
-  // $('#ATCSfooter').dblclick(function() {
-    // $('#ATCSfooter').click(function() {
-    //   if(safe) {
-    //     safe = false;
-    //     window.open("http://igraviti.com", '_blank');
-    //   }
-    // });
 
-    $("#ATCSfooter").click(function(){
-    window.open("http://igraviti.com", '_blank');
-    });
+    // $("#ATCSfooter").click(function(){
+    // window.open("http://igraviti.com", '_blank');
+    // });
   // });
 
 
