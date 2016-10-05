@@ -3,7 +3,7 @@
 
   "name": "Kent Powerschool Percentage Calculator",
   "description": "Displays percentages of grades and current semester GPA in Powerschool and allows the user to calculate updates to their grade.",
-  "version": "4.1.5",
+  "version": "4.1.7",
 
   "browser_action": {
     "default_title": "KDS Powerschool Grade Calculator",

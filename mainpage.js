@@ -87,6 +87,8 @@ $(document).ready(function() {
       honors[i] = 1.1;
     } else if ((honors[i].innerHTML.indexOf("Multi") >= 0)) {
       honors[i] = 1.1;
+    } else if ((honors[i].innerHTML.indexOf("Debate") >= 0)) {
+      honors[i] = 1;
     } else {
       honors[i] = 1;
     }
