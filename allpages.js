@@ -6,7 +6,7 @@
 
 if(document.getElementById("KDSNEWLoading") === null) {
   body.appendChild(loadingHTML);
-  var htmlInsert = "<a href = 'http://igraviti.com'><div id = 'ATCSfooter'>Powered by iGraviti || Shreyas Gupta & Fahim Choudhury</div></a>";
+  var htmlInsert = "<a href = 'https://shreyasgupta.com'><div id = 'ATCSfooter'>Powered by iGraviti || Shreyas Gupta & Fahim Choudhury</div></a>";
   $('body').append(htmlInsert);
   $('body').css('font-family','HelveticaNeue-Light');
   $('#ATCSfooter').css('position','fixed');

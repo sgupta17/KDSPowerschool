@@ -127,6 +127,7 @@ function reCalculate(){
   }
   var orgGrade = finalGradeHTML.innerHTML;
   orgGrade = orgGrade.substring(0, orgGrade.indexOf("(") + 1) + newGrade + ")";
+  console.log(orgGrade);
   finalGradeHTML.innerHTML = orgGrade;
   saveChanges();
 }
